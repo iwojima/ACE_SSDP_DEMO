@@ -4,22 +4,6 @@
 boost::mutex transform_mutex;
 boost::mutex peer_mutex;
 
-int 
-checkclient(int fd)
-{
-	struct sockaddr_in addr;
-	socklen_t addr_len;
-	int32_t listen_fd, sock_fd;
-	
-	addr_len = sizeof(addr);
-	
-	memset(&addr, 0, addr_len);
-	getpeername(fd, (struct sockaddr *)&addr, &addr_len);
-
-	if (strcmp("192.168.3.93" , inet_ntoa(addr.sin_addr) ) == 0) return 1;
-	
-	return 0;
-}
 
 int 
 handle_peer(ACE_HANDLE handle)
@@ -33,12 +17,6 @@ handle_peer(ACE_HANDLE handle)
 	if (shttp < 0)
 	{
 		std::cout<<GREEN<<"accept(http):  "<<strerror(errno)<<NONE<<std::endl;
-		return -1;
-	}
-			
-	if( !checkclient(shttp))  //limit ip address
-	{
-		close(shttp);
 		return -1;
 	}
 
