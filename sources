@@ -1,0 +1,17 @@
+
+TARGET_NAME=ACE_Mcast
+TARGET_TYPE=ecx
+
+INCLUDE=/home/iwojima/iWork/Thrid_party/ACE_wrappers_linux/
+INCLUDE+=-I/home/iwojima/iWork/ACE/Logging_Server
+
+C_FLAGS=-L/home/iwojima/iWork/Thrid_party/ACE_wrappers_linux/lib \
+		-L/home/iwojima/iWork/lib -llogging_server -lACE \
+		-L/home/iwojima/iWork/Thrid_party/boost_1_55_0/stage/lib \
+		-lboost_thread -lboost_system 
+
+		
+SOURCES=message_handle.cpp
+SOURCES+=thread_pool.cpp
+SOURCES+=main.cpp
+
