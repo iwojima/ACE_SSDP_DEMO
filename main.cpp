@@ -120,7 +120,6 @@ int main(int argc , char *argv[])
 				
 				std::map<ACE_HANDLE , std::string> m;
 				m.insert(std::pair<ACE_HANDLE , std::string>(udp_handle , std::string(buf)));
-				//vecque.push(m);
 				thrd_pool.push_task(m);
 			}
 			
@@ -128,7 +127,6 @@ int main(int argc , char *argv[])
 			{
 				std::map<ACE_HANDLE , std::string> m;
 				m.insert(std::pair<ACE_HANDLE , std::string>(peer_handle , std::string("HANDLE_PEER_ACCEPTOR")));
-				//vecque.push(m);
 				thrd_pool.push_task(m);
 			}
 		}
