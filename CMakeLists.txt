@@ -1,0 +1,11 @@
+project(ACE_MCAST)
+cmake_minimum_required(VERSION 2.8)
+set(WORK_ROOT /home/iwojima/iWork)
+set(SRC_LIST message_handle.cpp thread_pool.cpp main.cpp)
+include_directories("${WORK_ROOT}/include" "${WORK_ROOT}/Thrid_party/ACE_wrappers_linux" "${WORK_ROOT}/Thrid_party/boost_1_55_0")
+link_directories("${WORK_ROOT}/Thrid_party/ACE_wrappers_linux/lib" "${WORK_ROOT}/Thrid_party/boost_1_55_0/stage/lib")
+
+add_executable(ace_mcast ${SRC_LIST})
+target_link_libraries(ace_mcast ACE)
+target_link_libraries(ace_mcast boost_thread)
+target_link_libraries(ace_mcast boost_system)
