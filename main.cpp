@@ -2,6 +2,10 @@
 
 #include "main.h"
 
+void empty()
+{
+}
+
 
 long GetCurrentSecond()
 {
